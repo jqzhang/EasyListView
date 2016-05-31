@@ -32,8 +32,8 @@
         }
 	
 2. 实现ViewHolder
-        class SingleTypeViewHolder extends EasyBaseAdapter.ViewHolder<Result>  {
-
+        
+	class SingleTypeViewHolder extends EasyBaseAdapter.ViewHolder<Result>  {
             @Bind(R.id.textView)
             TextView textView;
 
@@ -49,10 +49,12 @@
         }
 
 3. 完成
+
 	listView.setAdapter(new SingleTypeAdapter());
 	
 ## 多样式
 1. 实现Adapter
+
         class MutiTypeAdapter<Result> extends EasyBaseAdapter {
 	
             // 一定要实现该方法
@@ -102,6 +104,7 @@
         }
 	
 2. 实现ViewHolder
+
         class MutiTypeViewHolder1 extends EasyBaseAdapter.ViewHolder<Result> {
 
             @Bind(R.id.textView)
@@ -135,6 +138,7 @@
         }
 
 3. 完成
+
 	listView.setAdapter(new SingleTypeAdapter());
 
 **注意：**多样式ListView 的 Adapter 中一定要实现 getViewTypeCount() 和 getItemViewType()这两个方法。其余照搬就好。
