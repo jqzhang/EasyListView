@@ -1,9 +1,11 @@
 # EasyListView
 每次用到 ListView 时候都需要写一个Adapter；令人恶心的是需要在getView() 方法中添加一堆代码，无论是使用还是写代码都非常不便。现在只需要三部就可以实现一个Adapter。
+
 注意：项目中用到 butterknife
 
 ## 单一样式
 1. 实现 Adapter
+
 		class SingleTypeAdapter extends EasyBaseAdapter {
 
 		List<Result> list = new ArrayList<>();
@@ -34,7 +36,8 @@
 	}
 	
 2. 实现ViewHolder
-	
+
+
 	class SingleTypeViewHolder extends EasyBaseAdapter.ViewHolder<Result>  {
 
 		@Bind(R.id.textView)
@@ -53,11 +56,13 @@
 	}
 
 3. 完成
+
 	listView.setAdapter(new SingleTypeAdapter());
 	
 ## 多样式
 1. 实现Adapter
-	
+
+
 	class MutiTypeAdapter<Result> extends EasyBaseAdapter {
 	
 		// 一定要实现该方法
@@ -110,6 +115,7 @@
 	
 2. 实现ViewHolder
 	
+
 	class MutiTypeViewHolder1 extends EasyBaseAdapter.ViewHolder<Result> {
 
 		@Bind(R.id.textView)
@@ -145,8 +151,9 @@
 	}
 
 3. 完成
+
 	listView.setAdapter(new SingleTypeAdapter());
-	
+
 	注意：多样式ListView 的 Adapter 中一定要实现 getViewTypeCount() 和 getItemViewType()这两个方法。其余照搬就好。
 
 
