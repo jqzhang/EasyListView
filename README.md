@@ -32,8 +32,9 @@
         }
 	
 2. 实现ViewHolder
-        
-	class SingleTypeViewHolder extends EasyBaseAdapter.ViewHolder<Result>  {
+
+        class SingleTypeViewHolder extends EasyBaseAdapter.ViewHolder<Result>  {
+
             @Bind(R.id.textView)
             TextView textView;
 
