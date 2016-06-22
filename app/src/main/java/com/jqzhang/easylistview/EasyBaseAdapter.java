@@ -56,8 +56,10 @@ public abstract class EasyBaseAdapter extends BaseAdapter {
 
 		ViewHolder vh;
 
-		if (null == convertView) {
+		if (null == convertView || ((convertView.getTag() != null)
+				&& (((ViewHolder) convertView.getTag()).getType() != getItemViewType(position)))) {
 			vh = onCreateViewHolder(parent, position);
+			vh.setType(getItemViewType(position));
 		} else {
 			vh = (ViewHolder) convertView.getTag();
 		}
@@ -75,12 +77,22 @@ public abstract class EasyBaseAdapter extends BaseAdapter {
 
 		private View convertView;
 
-		protected abstract void updateView(View convertView, T data, int position);
+		private int viewType = 0;
+
+		protected abstract void updateView(View view, T data, int position);
 
 		public ViewHolder(View view) {
 			ButterKnife.bind(this, view);
 			this.convertView = view;
 			setTag();
+		}
+
+		public int getType() {
+			return viewType;
+		}
+
+		public void setType(int type) {
+			viewType = type;
 		}
 
 		private void setTag() {
